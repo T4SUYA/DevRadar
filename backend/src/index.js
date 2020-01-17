@@ -16,7 +16,8 @@ app.use(router)
 
 mongoose.connect(process.env.DB_URI, {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false
 })
 
 

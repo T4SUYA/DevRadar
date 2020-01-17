@@ -1,37 +1,16 @@
 const express = require('express')
-const axios = require('axios')
 const router = express.Router()
-const Dev = require('./models/Dev')
+const DevControler = require('./controllers/DevController')
+const SearchController = require('./controllers/SearchController')
 
-router.get('/', (req,res) => {
-    return res.send("Ta funcionando po")
+//DEV CONTROLLERS
+router.get('/devs',DevControler.index )
+router.delete('/devs', DevControler.delete)
+router.post('/devs', DevControler.store)
+router.put('/devs', DevControler.update)
 
-})
-
-router.post('/devs', async (req,res) => {
-    let {github_username} = req.body
-    github_username = github_username.toLowerCase()
-    let response = {}
-    try {
-        response = await axios.get(`https://api.github.com/users/${github_username}`)
-    } catch (error) {
-       return res.json({
-           "message": error.message
-       }).send()
-    }
-     
-    const {avatar_url, bio, name} = response.data
-    const newDev = await Dev.create({
-        name,
-        github_username,
-        bio,
-        avatar_url,
-        techs: [
-            "Node","Java"
-        ]
-    })
-    return res.send(newDev)
-})
+//SEARCH CONTROLLER
+router.get('/search', SearchController.index)
 
 
 module.exports = router
