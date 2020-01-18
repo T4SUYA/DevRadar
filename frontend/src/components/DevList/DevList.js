@@ -11,7 +11,9 @@ export default (props) => {
                             <img src={dev.avatar_url} alt="avatar"/>
                             <div className = 'user-info'>
                                 <strong>{dev.name}</strong>
-                                <span>{dev.techs}</span>
+                                <span>{dev.techs.map(tech => ( 
+                                    tech + "." + " "
+                                ))}</span>
                                 <p>{dev.bio}</p>
                                 <a href={dev.html_url}>Acessar perfil no github</a>
                             </div>
