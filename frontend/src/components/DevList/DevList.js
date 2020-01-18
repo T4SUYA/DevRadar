@@ -12,10 +12,10 @@ export default (props) => {
                             <div className = 'user-info'>
                                 <strong>{dev.name}</strong>
                                 <span>{dev.techs.map(tech => ( 
-                                    tech + "." + " "
+                                    tech + ". "
                                 ))}</span>
                                 <p>{dev.bio}</p>
-                                <a href={dev.html_url}>Acessar perfil no github</a>
+                                <a target = '_blank' rel="noopener noreferrer" href={dev.html_url}>Acessar perfil no github</a>
                             </div>
                         </header>
                     </li>
