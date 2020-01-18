@@ -16,7 +16,10 @@ module.exports = {
 
         const dev = await Dev.findOne({github_username})
 
-        if(dev) return res.json(dev)
+        if(dev) return res.json({
+            message: "User Exists",
+            dev
+        })
 
         let response = {}
         try {
@@ -42,7 +45,7 @@ module.exports = {
             techs: techsArray,
             location
         })
-        return res.send(newDev)
+        return res.json(newDev)
     },
     async delete(req,res) {
         const {github_username} = req.body
