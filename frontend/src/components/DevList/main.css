@@ -62,7 +62,7 @@ li.dev-item a:hover {
 
 
 li.dev-item img {
-    height: 54px;
-    width: 54px;
-    border-radius: 27px;
+    height: 54px !important;
+    width: 54px !important;
+    border-radius: 50%;
 }

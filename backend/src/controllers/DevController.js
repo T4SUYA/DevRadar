@@ -36,12 +36,13 @@ module.exports = {
                 latitude
             ]
         }
-        const {avatar_url, bio, name} = response.data
+        const {avatar_url, bio, name,html_url} = response.data
         const newDev = await Dev.create({
             name,
             github_username,
             bio,
             avatar_url,
+            html_url,
             techs: techsArray,
             location
         })
