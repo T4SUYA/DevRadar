@@ -7,12 +7,13 @@ export default (props) => {
         <>
             <aside>
                 <strong>Cadastrar</strong>
-                    <form>
+                    <form onSubmit = {(e) => props.handleSubmit(e)}>
                         <div className = 'input-block'>
                             <label htmlFor ='github_username'>Usuário do GitHub</label>
                             <input 
                             name = 'github_username' 
                             id= 'github_username' 
+                            value = {props.username}
                             required 
                             onChange = {(e) => props.setUsername(e.target.value)}></input>
                         </div>
@@ -21,7 +22,8 @@ export default (props) => {
                             <label htmlFor ='techs'>Tecnologias</label>
                             <input 
                             name = 'techs' 
-                            id= 'techs' 
+                            id= 'techs'
+                            value = {props.techs}
                             required
                             onChange = {(e) => props.setTechs(e.target.value)}
                             />
@@ -29,9 +31,9 @@ export default (props) => {
                         
                         <div className = 'input-group'>
                             <div className="input-block">
-                                <label htmlFor =''>Latitude</label>
+                                <label htmlFor ='latitude'>Latitude</label>
                                 <input
-                                type = 'text' 
+                                type = 'number' 
                                 name = 'latitude' 
                                 id= 'latitude' 
                                 required 
@@ -39,9 +41,9 @@ export default (props) => {
                                 onChange = {(e) => props.setLatitude(e.target.value)}/>
                             </div>
                             <div className="input-block">
-                                <label htmlFor =''>Longitude</label>
+                                <label htmlFor ='longitude'>Longitude</label>
                                 <input
-                                type  = 'text' 
+                                type  = 'number' 
                                 name = 'longitude' 
                                 id= 'longitude' 
                                 required 
@@ -50,7 +52,7 @@ export default (props) => {
                                 />
                             </div>
                         </div>
-                        <button type = 'submit' onClick = {(e) => props.handleSubmit(e)} >Salvar</button>
+                        <button type = 'submit' >Salvar</button>
                     </form>
             </aside>
         </>

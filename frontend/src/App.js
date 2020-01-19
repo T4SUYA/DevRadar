@@ -1,12 +1,12 @@
 import React, {useEffect,useState} from 'react'
 import api from './api/api'
-import SideBar from './components/SideBar/SidebBar'
+import SideBar from './components/SideBar/SideBar'
 import DevList from './components/DevList/DevList'
 import './global.css'
 import './App.css'
 export default () => {
-    const [latitude,setLatitude] = useState()
-    const [longitude,setLongitude] = useState()
+    const [latitude,setLatitude] = useState('')
+    const [longitude,setLongitude] = useState('')
     const [username,setUsername] = useState('')
     const [techs,setTechs] = useState('')
     const [devs,setDevs] = useState([])
@@ -60,6 +60,8 @@ export default () => {
             handleSubmit = {handleSubmit}
             latitude = {latitude}
             longitude = {longitude}
+            username = {username}
+            techs = {techs}
             />
             <DevList devs = {devs}/>
         </div>
